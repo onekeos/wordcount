@@ -8,15 +8,20 @@ import (
 )
 
 func main() {
-	reader := bufio.NewReader(os.Stdin)
+	reader := bufio.NewScanner(os.Stdin)
 
-	text, err := reader.ReadString('\n')
+	reader.Scan()
 
-	if err != nil {
-		fmt.Printf("Error: %d", 0)
+	text := strings.TrimSpace(reader.Text())
+
+	if len(text) == 0 {
+		fmt.Println(0)
+
+	} else {
+
+		numOfWords := strings.Split(text, " ")
+
+		fmt.Println(len(numOfWords))
 	}
-	
-	numOfWords := strings.Split(text, " ")
-	fmt.Println(len(numOfWords))
 
 }
