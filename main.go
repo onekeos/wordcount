@@ -1,18 +1,20 @@
 package main
 
 import (
-	"bufio"
+	// "bufio"
 	"fmt"
-	"os"
+	// "os"
 	"strings"
+	"flag"
 )
 
 func main() {
-	reader := bufio.NewScanner(os.Stdin)
 
-	reader.Scan()
+	flag.Parse()
 
-	text := strings.TrimSpace(reader.Text())
+	src := strings.Join(flag.Args(), "")
+
+	text := strings.TrimSpace(src)
 
 	if len(text) == 0 {
 		fmt.Println(0)
